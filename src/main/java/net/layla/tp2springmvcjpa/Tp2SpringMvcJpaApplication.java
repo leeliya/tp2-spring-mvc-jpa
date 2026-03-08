@@ -34,6 +34,9 @@ public class Tp2SpringMvcJpaApplication {
                     .quantity(33)
                     .build());
 
+            productRepository.findAll().forEach(p -> {
+                System.out.println(p.toString());
+            });
         };
     }
 }
