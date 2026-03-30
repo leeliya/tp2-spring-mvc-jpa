@@ -21,7 +21,7 @@
                     <td th:text="${p.price}"></td>
                     <td th:text="${p.quantity}"></td>
                     <td>
-                        <a class="btn btn-danger" th:href="@{/delete(id=${p.id})}">Delete</a>
+                        <a class="btn btn-danger" th:href="@{/delete(id=${p.id})}" onclick="return confirm('Êtes-vous sûre ?')">Delete</a>
                     </td>
                 </tr>
             </tbody>
