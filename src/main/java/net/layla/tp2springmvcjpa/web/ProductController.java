@@ -19,6 +19,11 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/index" ;
+    }
+
     @GetMapping("/index")
     public String index(Model model) {
         List<Product> products = productRepository.findAll();
@@ -30,5 +35,11 @@ public class ProductController {
     public String delete(@RequestParam(name = "id") Long id) {
         productRepository.deleteById(id);
         return "redirect:/index";
+    }
+
+    @GetMapping("/newProduct")
+    public String newProduct (Model model) {
+        model.addAttribute("product", new Product());
+        return "new-product" ;
     }
 }
