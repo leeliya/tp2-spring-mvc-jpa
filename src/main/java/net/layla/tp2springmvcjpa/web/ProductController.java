@@ -1,10 +1,12 @@
 package net.layla.tp2springmvcjpa.web;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import net.layla.tp2springmvcjpa.entities.Product;
 import net.layla.tp2springmvcjpa.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.server.autoconfigure.ServerProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -58,5 +60,16 @@ public class ProductController {
     @GetMapping("/notAuthorized")
     public String notAuthorized() {
         return "notAuthorized" ;
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login" ;
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "login" ;
     }
 }
