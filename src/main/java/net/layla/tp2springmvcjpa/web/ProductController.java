@@ -38,7 +38,7 @@ public class ProductController {
     @GetMapping("/admin/delete")
     public String delete(@RequestParam(name = "id") Long id) {
         productRepository.deleteById(id);
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
     @GetMapping("/admin/newProduct")
@@ -51,6 +51,6 @@ public class ProductController {
     public String saveProduct (@Valid Product product, BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()) return "new-product" ;
         productRepository.save(product);
-        return "redirect:/index" ;
+        return "redirect:/user//index" ;
     }
 }
